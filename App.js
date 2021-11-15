@@ -7,11 +7,13 @@ import { enableScreens } from 'react-native-screens';
 
 import productsReducer from './src/store/reducers/products';
 import ShopNavigator from './src/navigation/ShopNavigator';
+import cartReducer from './src/store/reducers/cart';
 
 enableScreens();
 
 const rootReducer = combineReducers({
-  products: productsReducer
+  products: productsReducer,
+  cart: cartReducer
 });
 
 const store = createStore(rootReducer);
