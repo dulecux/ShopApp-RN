@@ -7,16 +7,18 @@ import { enableScreens } from 'react-native-screens';
 import ReduxThunk from 'redux-thunk';
 
 import productsReducer from './src/store/reducers/products';
-import ShopNavigator from './src/navigation/ShopNavigator';
+import NavigationContainer from './src/navigation/NavigationContainer'
 import cartReducer from './src/store/reducers/cart';
 import ordersReducer from './src/store/reducers/orders';
+import authReducer from './src/store/reducers/auth';
 
 enableScreens();
 
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
-  orders: ordersReducer
+  orders: ordersReducer,
+  auth: authReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
@@ -43,7 +45,7 @@ export default function App() {
 
   return (
    <Provider store={store}>
-      <ShopNavigator />
+      <NavigationContainer />
    </Provider>
   );
 }
